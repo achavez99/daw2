@@ -5,12 +5,12 @@ import { Component } from "@angular/core";
     templateUrl:'./heroe.component.html'
 })
 export class HeroeComponent{
-    let habilidades : String[]=['Fuego', 'Agua' , 'Tierra'];
+  title: string = 'Los mejores heroes';
 
-    /* title: string = 'Contador app'; */
- 
-  /* calcular(numero:number){
-    
-    this.numero+=numero;
-} */
+  
+
+
 }
+
+let heroes : String[]=['Spiderman', 'Thor' , 'Iron man'];
+
