@@ -1,6 +1,7 @@
 <?php
-include("aut_session.php");
+session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +12,7 @@ include("aut_session.php");
 </head>
 <body>
 
-<div class="form">
-
-    <p>Hola,<?php echo $_SESSION['Nombre'];?></p>
-    <p><a href="logout.php">Log out</a></p>
-    
-</div>
+<?php echo "Bienvenido ".$_SESSION['nombre'];?>
     
 </body>
 </html>
