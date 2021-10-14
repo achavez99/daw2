@@ -1,5 +1,26 @@
 <?php
-$mail = $_POST['Mail'];
+require('register.php')
+session_start();
+if (isset($_POST['Mail'])){
+    $mail = stripcslashes($_REQUEST['Mail']);
+    $mail = mysqli_real_escape_string($con, $mail);
+    $password = stripcslashes($_REQUEST['Contraseña']);
+    $password = mysqli_real_escape_string($con, $password);
+
+    $query = "SELECT * FROM `users` WHERE Mail='$mail'
+    AND password='" . md5($password) . "'";
+    $result = mysqli_query($con, $query) or die(mysql_error());
+    $rows = mysqli_num_rows($result);
+
+    if($rows == 1){
+        $_SESSION['Mail'] = $mail;
+
+        header("Location: basicuser.php")
+    }
+}
+?>
+
+<!-- $mail = $_POST['Mail'];
 $contraseña = $_POST['Contraseña'];
 
 /* CONFIGURAR CONEXION AL SERVIDOR*/
@@ -29,4 +50,4 @@ $con=mysqli_connect($servidor,$usuario,$password,$register);
          echo "El insert se ha realizado correctamente";
      }
     }
-?>
+ -->
