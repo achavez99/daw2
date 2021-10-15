@@ -1,16 +1,16 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
     selector:'heroe-component',
     templateUrl:'./heroe.component.html'
 })
 export class HeroeComponent{
-  title: string = 'Los mejores heroes';
 
   
-
+  heroes : String[]=['Spiderman', 'Thor' , 'Iron man'];
+  
+  
 
 }
 
-let heroes : String[]=['Spiderman', 'Thor' , 'Iron man'];
 
