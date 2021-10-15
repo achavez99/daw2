@@ -1,4 +1,5 @@
 <?php
+
 require('register.php')
 session_start();
 if (isset($_POST['Mail'])){
@@ -20,34 +21,36 @@ if (isset($_POST['Mail'])){
 }
 ?>
 
-<!-- $mail = $_POST['Mail'];
-$contraseña = $_POST['Contraseña'];
-
-/* CONFIGURAR CONEXION AL SERVIDOR*/
-
-$servidor="localhost";
-$usuario="root";
-$password="usbw";
-$register="registerlogin";
-
-/* CONEXION A BASE DE DATOS VARIABLE CONEXION*/
-
-$con=mysqli_connect($servidor,$usuario,$password,$register);
- if(!$con){
-    die("No se ha podido realizar la conexión ".mysqli_connect_error()."<br>");
- }else{
-     mysqli_set_charset($con,"utf8");
-     echo "Se ha establecido correctamente la conexión a la base de datos";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="login">
+        <div class="login-title">
+            <h1>Login</h1>
+        </div>
     
-     $sql="INSERT INTO `registerlogin`.`registerlogin` (`id`, `Nombre`, `Apellidos`, `Mail`, `Contraseña`, `ConfContraseña`) 
-     VALUES (NULL, '".$nombre."', '".$apellidos."', '".$mail."', '".$contraseña."', '".$confContraseña."')";
 
-     $consulta=mysqli_query($con,$sql);
+    <form action="/validar.php" method="post">
+        <div class="container">
 
-     if(!$con){
-         die("No se ha podido realizar el insert");
-     }else{
-         echo "El insert se ha realizado correctamente";
-     }
-    }
- -->
+            <label for="Mail"></label>
+            <input type="text" id="Mail" name="Mail" placeholder="Correo electrónico"><br><br>
+
+            <label for="Contraseña"></label>
+            <input type="text" id="Contraseña" name="Contraseña" placeholder="Contraseña"><br><br>
+
+            <input type="submit" value="Acceder">
+
+        </div>
+        
+    </form>
+    </div>
+</body>
+</html>
